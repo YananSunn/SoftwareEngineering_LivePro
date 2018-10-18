@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import StudentPlayer from '@/components/StudentPlayer'
-import PersonalInformation from '@/components/PersonalInformation'
-// import SelfInfo from '@/components/SelfInfo'
+import StudentPlayer from '@/components/PlayerPage/StudentPlayer'
+import PersonalInformation from '@/components/InfoPage/PersonalInformation'
 
 Vue.use(Router)
 
