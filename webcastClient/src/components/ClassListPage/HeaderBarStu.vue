@@ -1,38 +1,4 @@
-<style scoped>
-.header-layout {
-  border: 1px solid #d7dde4;
-  background: #f5f7f9;
-  /* position: relative; */
-  border-radius: 4px;
-  overflow: hidden;
-  /* 这里以下是修改 */
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  /* 这里以上是修改 */
-}
 
-.header-layout-logo {
-  width: 100px;
-  height: 48px;
-  background: #5b6270;
-  border-radius: 3px;
-  float: left;
-  position: relative;
-  top: 5px;
-  left: 20px;
-  /* background-image: url(../assets/jsklogo.png); */
-}
-
-.header-layout-nav {
-  width: 500px;
-  height: 120px;
-  margin: 0 auto;
-  margin-right: 20px;
-}
-
-</style>
 <template>
 <div class="header-layout">
 
@@ -66,3 +32,35 @@ export default {
 
 }
 </script>
+<style scoped>
+.header-layout {
+  border: 1px solid #d7dde4;
+  background: #f5f7f9;
+  border-radius: 4px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+}
+
+.header-layout-logo {
+  width: 100px;
+  height: 48px;
+  background: #5b6270;
+  border-radius: 3px;
+  float: left;
+  position: relative;
+  top: 5px;
+  left: 20px;
+  /* background-image: url(../assets/jsklogo.png); */
+}
+
+.header-layout-nav {
+  width: 500px;
+  height: 120px;
+  margin: 0 auto;
+  margin-right: 20px;
+}
+
+</style>

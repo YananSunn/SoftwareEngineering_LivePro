@@ -1,3 +1,61 @@
+<template>
+<div class="layout">
+  <Layout>
+    <Sider breakpoint="md" collapsible :collapsed-width="78" v-model="isCollapsed">
+      <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
+        <MenuItem name="1-1">
+        <Icon type="ios-navigate"></Icon>
+        <span v-on:click="showSelfInfo = true">个人资料</span>
+        </MenuItem>
+        <MenuItem name="1-2">
+        <Icon type="ios-search"></Icon>
+        <span v-on:click="showSelfInfo = false">账号安全</span>
+        </MenuItem>
+      </Menu>
+      <div slot="trigger"></div>
+    </Sider>
+    <Layout>
+      <Content :style="{margin: '20px', background: '#fff', minHeight: '220px'}">
+        <!-- <template></template> -->
+        <SelfInfo v-if="showSelfInfo"></SelfInfo>
+        <AccountSecurity v-if="!showSelfInfo"></AccountSecurity>
+      </Content>
+    </Layout>
+  </Layout>
+</div>
+</template>
+<script>
+import SelfInfo from '@/components/InfoPage/SelfInfo.vue'
+import AccountSecurity from '@/components/InfoPage/AccountSecurity.vue'
+
+export default {
+  data() {
+    return {
+      isCollapsed: false,
+      showSelfInfo: true
+    };
+  },
+  methods:{
+    // change_page: (num) => {
+    //   console.log("change_page")
+    //   this.changePage = num
+    //   console.log(this.changePage)
+    // }
+  },
+  computed: {
+    menuitemClasses: function() {
+      return [
+        'menu-item',
+        this.isCollapsed ? 'collapsed-menu' : ''
+      ]
+    }
+  },
+  components:{
+    SelfInfo,
+    AccountSecurity
+  }
+}
+</script>
 <style scoped>
 .layout {
   /* border: 1px solid #d7dde4;
@@ -41,52 +99,3 @@
   font-size: 22px;
 }
 </style>
-<template>
-<div class="layout">
-  <Layout>
-    <Sider breakpoint="md" collapsible :collapsed-width="78" v-model="isCollapsed">
-      <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
-        <MenuItem name="1-1">
-        <Icon type="ios-navigate"v-if="changePage == 1"></Icon>
-        <button onclick="change_page(1)" >个人资料</button>
-        </MenuItem>
-        <MenuItem name="1-2">
-        <Icon type="ios-search" v-if="changePage == 2"></Icon>
-        <span  onclick="change_page(2)" >账号安全</span>
-        </MenuItem>
-      </Menu>
-      <div slot="trigger"></div>
-    </Sider>
-    <Layout>
-      <Content :style="{margin: '20px', background: '#fff', minHeight: '220px'}">
-        <router-view>
-        </router-view>
-      </Content>
-    </Layout>
-  </Layout>
-</div>
-</template>
-<script>
-export default {
-  data() {
-    return {
-      isCollapsed: false,
-      changePage: 1
-    };
-  },
-  methods:{
-    change_page: (num) => {
-      console.log("change_page")
-      changePage = num
-    }
-  },
-  computed: {
-    menuitemClasses: function() {
-      return [
-        'menu-item',
-        this.isCollapsed ? 'collapsed-menu' : ''
-      ]
-    }
-  }
-}
-</script>

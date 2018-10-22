@@ -50,6 +50,7 @@
                     </Layout>
                 </Content>
             </Layout>
+            <recorder></recorder>
     <Footer class="layout-footer-center">2018 &copy; Team4.0</Footer>
   </Layout>
 </div>
@@ -59,12 +60,14 @@
 <script>
 import HeaderBarStu from '@/components/PlayerPage/HeaderBarStu.vue'
 import MyContainer from '@/components/PlayerPage/MyContainer.vue'
+import Recorder from '@/components/PlayerPage/Recorder.vue'
 
 export default {
 
   components: {
     HeaderBarStu,
-    MyContainer
+    MyContainer,
+    Recorder
   }
 }
 </script>

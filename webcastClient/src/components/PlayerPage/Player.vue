@@ -1,15 +1,5 @@
-<style scoped>
-.player {
-  /* background-color: #00FFFF;
-  height: 500px;
-  width: 700px; */
-}
-</style>
 
 <template>
-  <!-- <body onload="">
-
-  </body> -->
 <div class="player" id='player'>
 </div>
 </template>
@@ -22,11 +12,6 @@ export default {
     vid: ''
 
   }),
-  beforeCreate(){
-
-    console.log("before")
-  },
-
   mounted() {
     this.updateUid('9f528fa01e')
     this.updateVid('242078')
@@ -53,3 +38,10 @@ export default {
   }
 }
 </script>
+<style scoped>
+.player {
+  /* background-color: #00FFFF;
+  height: 500px;
+  width: 700px; */
+}
+</style>
