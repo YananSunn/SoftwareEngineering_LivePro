@@ -1,22 +1,24 @@
 <template>
 <div>
+
   <head>
-  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  	<title>Live input record and playback</title>
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+    <title>Live input record and playback</title>
     <!-- /* <style type='text/css'>
       ul { list-style: none; }
       #recordingslist audio { display: block; margin-bottom: 10px; }
     </style> */ -->
   </head>
+
   <body>
 
-    <h1>Recorder.js simple WAV export example</h1>
+    <!-- <h1>Recorder.js simple WAV export example</h1>
 
     <p>Make sure you are using a recent version of Google Chrome.</p>
-    <p>Also before you enable microphone input either plug in headphones or turn the volume down if you want to avoid ear splitting feedback!</p>
+    <p>Also before you enable microphone input either plug in headphones or turn the volume down if you want to avoid ear splitting feedback!</p> -->
 
-    <button onclick="startRecording(this);">record</button>
-    <button onclick="stopRecording(this);" disabled>stop</button>
+    <button v-on:click="startRecording();">record</button>
+    <button v-on:click="stopRecording();" disabled>stop</button>
 
     <h2>Recordings</h2>
     <ul id="recordingslist"></ul>
@@ -29,66 +31,62 @@
 </template>
 
 <script>
+
+import Recorder from '../../../static/recorder/recorder.js'
+
 export default {
   data: () => ({
-    audio_context,
-    recorder
+    // audio_context,
+    // recorder
   }),
   mounted() {
-    let recaptchaScript = document.createElement('script')
-    recaptchaScript.src = 'recorder.js'
-    document.body.appendChild(recaptchaScript)
-    recaptchaScript.onload = () => {
+    let window = document.createElement('script')
+    window.src = 'recorder.js'
+    document.body.appendChild(window)
+
+    var audio_context;
+    var recorder;
+
+    window.onload = function init() {
       try {
         // webkit shim
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
         window.URL = window.URL || window.webkitURL;
+      audio_context = new AudioContext;
+        navigator.getUserMedia({
+          audio: true
+        }, startUserMedia, function(e) {
+        });
+        function startUserMedia(stream) {
+          var input = audio_context.createMediaStreamSource(stream);
+          // Uncomment if you want the audio to feedback directly
+          //input.connect(audio_context.destination);
+          recorder = new Recorder(input);
+        }
 
-        audio_context = new AudioContext;
-        __log('Audio context set up.');
-        __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
       } catch (e) {
         alert('No web audio support in this browser!');
       }
 
-      navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-        __log('No live audio input: ' + e);
-      });
-    }
+    };
+    // }
   },
   methods: {
-    __log:function(e, data) {
-      log.innerHTML += "\n" + e + " " + (data || '');
-    },
-    startUserMedia:function(stream) {
-      var input = audio_context.createMediaStreamSource(stream);
-      __log('Media stream created.');
-      // Uncomment if you want the audio to feedback directly
-      //input.connect(audio_context.destination);
-      //__log('Input connected to audio context destination.');
-
-      recorder = new Recorder(input);
-      __log('Recorder initialised.');
-    },
-    startRecording:function(button) {
+    startRecording: function() {
       recorder && recorder.record();
       button.disabled = true;
       button.nextElementSibling.disabled = false;
-      __log('Recording...');
     },
-    stopRecording:function(button) {
+    stopRecording: function() {
       recorder && recorder.stop();
       button.disabled = true;
       button.previousElementSibling.disabled = false;
-      __log('Stopped recording.');
-
       // create WAV download link using audio data blob
       createDownloadLink();
-
       recorder.clear();
     },
-    createDownloadLink:function() {
+    createDownloadLink: function() {
       recorder && recorder.exportWAV(function(blob) {
         var url = URL.createObjectURL(blob);
         var li = document.createElement('li');
@@ -107,27 +105,4 @@ export default {
     }
   }
 }
-
-
-
-// window.onload = function init() {
-//   try {
-//     // webkit shim
-//     window.AudioContext = window.AudioContext || window.webkitAudioContext;
-//     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-//     window.URL = window.URL || window.webkitURL;
-//
-//     audio_context = new AudioContext;
-//     __log('Audio context set up.');
-//     __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
-//   } catch (e) {
-//     alert('No web audio support in this browser!');
-//   }
-//
-//   navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-//     __log('No live audio input: ' + e);
-//   });
-// };
 </script>
-
-<!-- <script src="recorder.js"></script> -->
