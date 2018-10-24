@@ -1,3 +1,37 @@
+
+<template>
+<div class="header-layout">
+
+  <Menu mode="horizontal" theme="dark" active-name="1">
+    <div class="header-layout-logo"></div>
+    <div class="header-layout-nav">
+      <MenuItem name="1">
+      <Icon type="ios-navigate"></Icon>
+      <router-link to="/">回到主页</router-link>
+      </MenuItem>
+      <MenuItem name="2">
+      <Icon type="ios-keypad"></Icon>
+      选择课程
+      </MenuItem>
+      <MenuItem name="3">
+      <Icon type="ios-analytics"></Icon>
+      课程信息
+      </MenuItem>
+      <MenuItem name="4">
+      <Icon type="ios-paper"></Icon>
+      关于我们
+      </MenuItem>
+    </div>
+  </Menu>
+
+
+</div>
+</template>
+<script>
+export default {
+
+}
+</script>
 <style scoped>
 .header-layout {
   border: 1px solid #d7dde4;
@@ -33,36 +67,3 @@
 }
 
 </style>
-<template>
-<div class="header-layout">
-
-  <Menu mode="horizontal" theme="dark" active-name="1">
-    <div class="header-layout-logo"></div>
-    <div class="header-layout-nav">
-      <MenuItem name="1">
-      <Icon type="ios-navigate"></Icon>
-      <router-link to="/">回到主页</router-link>
-      </MenuItem>
-      <MenuItem name="2">
-      <Icon type="ios-keypad"></Icon>
-      选择课程
-      </MenuItem>
-      <MenuItem name="3">
-      <Icon type="ios-analytics"></Icon>
-      课程信息
-      </MenuItem>
-      <MenuItem name="4">
-      <Icon type="ios-paper"></Icon>
-      关于我们
-      </MenuItem>
-    </div>
-  </Menu>
-
-
-</div>
-</template>
-<script>
-export default {
-
-}
-</script>

@@ -1,48 +1,3 @@
-
-<template>
-<div class="layout">
-  <span> </span>
-  <p class="title">个人头像</p>
-  <HR class="line" double>
-  </HR>
-  <Upload action="//jsonplaceholder.typicode.com/posts/">
-    <Avatar icon="ios-person" size="large" />
-    <Button>上传头像</Button>
-  </Upload>
-
-
-  <p class="title">基本资料</p>
-  <HR class="line" double>
-  </HR>
-  <DefaultSelfInfo v-if="showDefault" v-on:edit_info="showDefault = false"></DefaultSelfInfo>
-  <EditSelfInfo v-if="!showDefault" v-on:default_info="showDefault = true"></EditSelfInfo>
-
-</div>
-</template>
-<script>
-import DefaultSelfInfo from '@/components/InfoPage/DefaultSelfInfo.vue'
-import EditSelfInfo from '@/components/InfoPage/EditSelfInfo.vue'
-
-export default {
-  data() {
-    return {
-      showDefault: true
-    };
-  },
-  methods: {
-
-  },
-  computed: {
-
-  },
-  components: {
-    DefaultSelfInfo,
-    EditSelfInfo
-  }
-
-}
-</script>
-
 <style scoped>
 .layout {
   left: 10px;
@@ -67,4 +22,35 @@ export default {
   margin-top: 20px;
   margin-bottom: 40px;
 }
+
+.fundamentalInfo{
+  width: 130%;
+  /* margin-top: 40px; */
+}
 </style>
+<template>
+<div class="layout">
+  <span> </span>
+  <p class="title">个人头像</p>
+  <HR class="line" double>
+  </HR>
+  <Upload action="//jsonplaceholder.typicode.com/posts/">
+    <Avatar icon="ios-person" size="large" />
+    <Button>上传头像</Button>
+  </Upload>
+
+
+  <p class="title">基本资料</p>
+  <HR class="line" double>
+  </HR>
+
+  <router-view class="fundamentalInfo"></router-view>
+
+
+</div>
+</template>
+<script>
+export default {
+
+}
+</script>

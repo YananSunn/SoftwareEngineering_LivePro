@@ -1,33 +1,3 @@
-
-<template>
-<div class="layout">
-  <Layout>
-    <Header>
-      <header-bar-stu />
-    </Header>
-    <Layout :style="{padding: '30px 50px'}">
-      <div class="setinfo">
-        <info-board />
-      </div>
-    </Layout>
-    <Footer class="layout-footer-center">2018 &copy; Team4.0</Footer>
-  </Layout>
-</div>
-</div>
-</template>
-
-<script>
-import HeaderBarStu from '@/components/PlayerPage/HeaderBarStu.vue'
-import InfoBoard from '@/components/InfoPage/InfoBoard.vue'
-
-export default {
-
-  components: {
-    HeaderBarStu,
-    InfoBoard
-  }
-}
-</script>
 <style scoped>
 .layout {
   border: 1px solid #d7dde4;
@@ -59,3 +29,32 @@ export default {
   text-align: center;
 }
 </style>
+<template>
+<div class="layout">
+  <Layout>
+    <Header>
+      <header-bar-stu />
+    </Header>
+    <Layout :style="{padding: '30px 50px'}">
+      <div class="setinfo">
+        <info-board />
+      </div>
+    </Layout>
+    <Footer class="layout-footer-center">2018 &copy; Team4.0</Footer>
+  </Layout>
+</div>
+</div>
+</template>
+
+<script>
+import HeaderBarStu from '@/components/PlayerPage/HeaderBarStu.vue'
+import InfoBoard from '@/components/InfoPage/InfoBoard.vue'
+
+export default {
+
+  components: {
+    HeaderBarStu,
+    InfoBoard
+  }
+}
+</script>

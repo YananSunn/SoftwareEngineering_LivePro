@@ -1,3 +1,39 @@
+
+<template>
+<div class="layout">
+  <Layout>
+    <Header>
+      <header-bar-stu />
+    </Header>
+    <Layout :style="{padding: '30px 50px'}">
+                <Content :style="{padding: '24px 0', minHeight: '280px', background: '#C0C0C0'}">
+                    <Layout>
+                      <div class="talkroom">
+                            <my-container/>
+                      </div>
+                    </Layout>
+                </Content>
+            </Layout>
+            <Recorder></Recorder>
+    <Footer class="layout-footer-center">2018 &copy; Team4.0</Footer>
+  </Layout>
+</div>
+</div>
+</template>
+
+<script>
+import HeaderBarStu from '@/components/PlayerPage/HeaderBarStu.vue'
+import MyContainer from '@/components/PlayerPage/MyContainer.vue'
+import Recorder from '@/components/PlayerPage/Recorder.vue'
+export default {
+
+  components: {
+    HeaderBarStu,
+    MyContainer,
+    Recorder
+  }
+}
+</script>
 <style scoped>
 .layout {
   border: 1px solid #d7dde4;
@@ -35,39 +71,3 @@
   overflow: hidden;
 }
 </style>
-<template>
-<div class="layout">
-  <Layout>
-    <Header>
-      <header-bar-stu />
-    </Header>
-    <Layout :style="{padding: '30px 50px'}">
-                <Content :style="{padding: '24px 0', minHeight: '280px', background: '#C0C0C0'}">
-                    <Layout>
-                      <div class="talkroom">
-                            <my-container/>
-                      </div>
-                    </Layout>
-                </Content>
-            </Layout>
-            <recorder></recorder>
-    <Footer class="layout-footer-center">2018 &copy; Team4.0</Footer>
-  </Layout>
-</div>
-</div>
-</template>
-
-<script>
-import HeaderBarStu from '@/components/PlayerPage/HeaderBarStu.vue'
-import MyContainer from '@/components/PlayerPage/MyContainer.vue'
-import Recorder from '@/components/PlayerPage/Recorder.vue'
-
-export default {
-
-  components: {
-    HeaderBarStu,
-    MyContainer,
-    Recorder
-  }
-}
-</script>

@@ -1,5 +1,9 @@
 
+
 <template>
+  <!-- <body onload="">
+
+  </body> -->
 <div class="player" id='player'>
 </div>
 </template>
@@ -12,6 +16,11 @@ export default {
     vid: ''
 
   }),
+  beforeCreate(){
+
+    console.log("before")
+  },
+
   mounted() {
     this.updateUid('9f528fa01e')
     this.updateVid('242078')

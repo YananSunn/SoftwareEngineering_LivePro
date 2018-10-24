@@ -1,61 +1,3 @@
-<template>
-<div class="layout">
-  <Layout>
-    <Sider breakpoint="md" collapsible :collapsed-width="78" v-model="isCollapsed">
-      <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
-        <MenuItem name="1-1">
-        <Icon type="ios-navigate"></Icon>
-        <span v-on:click="showSelfInfo = true">个人资料</span>
-        </MenuItem>
-        <MenuItem name="1-2">
-        <Icon type="ios-search"></Icon>
-        <span v-on:click="showSelfInfo = false">账号安全</span>
-        </MenuItem>
-      </Menu>
-      <div slot="trigger"></div>
-    </Sider>
-    <Layout>
-      <Content :style="{margin: '20px', background: '#fff', minHeight: '220px'}">
-        <!-- <template></template> -->
-        <SelfInfo v-if="showSelfInfo"></SelfInfo>
-        <AccountSecurity v-if="!showSelfInfo"></AccountSecurity>
-      </Content>
-    </Layout>
-  </Layout>
-</div>
-</template>
-<script>
-import SelfInfo from '@/components/InfoPage/SelfInfo.vue'
-import AccountSecurity from '@/components/InfoPage/AccountSecurity.vue'
-
-export default {
-  data() {
-    return {
-      isCollapsed: false,
-      showSelfInfo: true
-    };
-  },
-  methods:{
-    // change_page: (num) => {
-    //   console.log("change_page")
-    //   this.changePage = num
-    //   console.log(this.changePage)
-    // }
-  },
-  computed: {
-    menuitemClasses: function() {
-      return [
-        'menu-item',
-        this.isCollapsed ? 'collapsed-menu' : ''
-      ]
-    }
-  },
-  components:{
-    SelfInfo,
-    AccountSecurity
-  }
-}
-</script>
 <style scoped>
 .layout {
   /* border: 1px solid #d7dde4;
@@ -99,3 +41,45 @@ export default {
   font-size: 22px;
 }
 </style>
+<template>
+<div class="layout">
+  <Layout>
+    <Sider breakpoint="md" collapsible :collapsed-width="78" v-model="isCollapsed">
+      <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
+        <MenuItem name="1-1">
+        <Icon type="ios-navigate"></Icon>
+        <router-link to="/SelfInfo">个人资料</router-link>
+        </MenuItem>
+        <MenuItem name="1-2">
+        <Icon type="ios-search"></Icon>
+        <router-link to="/AccountSecurity">账号安全</router-link>
+        </MenuItem>
+      </Menu>
+      <div slot="trigger"></div>
+    </Sider>
+    <Layout>
+      <Content :style="{margin: '20px', background: '#fff', minHeight: '220px'}">
+        <router-view>
+        </router-view>
+      </Content>
+    </Layout>
+  </Layout>
+</div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      isCollapsed: false
+    };
+  },
+  computed: {
+    menuitemClasses: function() {
+      return [
+        'menu-item',
+        this.isCollapsed ? 'collapsed-menu' : ''
+      ]
+    }
+  }
+}
+</script>

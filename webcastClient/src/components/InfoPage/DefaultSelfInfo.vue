@@ -6,7 +6,7 @@
                 <p>Content of card</p>
                 <p>Content of card</p>
                 <p>Content of card</p>
-                <Button v-on:click="$emit('edit_info')">编辑</Button>
+                <router-link to="/EditSelfInfo"><Button>编辑</Button></router-link>
             </Card>
         </Col>
     </Row>
