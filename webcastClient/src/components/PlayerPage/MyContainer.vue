@@ -1,11 +1,14 @@
 <template>
-<div class="container-layout">
-  <div class="leftContext">
-    <player />
+<div class="layout">
+  <div class="PPTShow">
+    <PPTShow></PPTShow>
   </div>
-  <div class="rightContext">
-    <div class="editorRecommend">
-      <talk-room :classId="this.classId" />
+  <div class="videoAndTalk">
+    <div class="player">
+      <player></player>
+    </div>
+    <div class="talkRoom">
+      <TalkRoom :classId="this.classId"></TalkRoom>
     </div>
   </div>
 </div>
@@ -13,35 +16,51 @@
 <script>
 import Player from './Player.vue'
 import TalkRoom from './TalkRoom.vue'
+import PPTShow from './PPTShow.vue'
 export default {
   components: {
     Player,
-    TalkRoom
+    TalkRoom,
+    PPTShow
   },
-  props:{
-    classId:String
+  props: {
+    classId: String
   }
 }
 </script>
 <style scoped>
-.container-layout {
-  border: 1px solid #d7dde4;
+.layout {
   background: #f5f7f9;
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
+  width: 1280px;
+  padding-left: 60px;
+  padding-top: 50px;
+  text-align: left;
 }
 
-.leftContext {
-  float: left;
-  min-width: 500px;
-  min-height: 409px;
-  border-bottom: 1px solid #BDBDBD;
+.PPTShow {
+  display: inline-block;
+  width: 800px;
+  height: 600px;
+  vertical-align: top;
+  box-shadow: 0px 0px 10px 5px #e0e2e4;
 }
 
-.rightContext {
-  float: right;
+.videoAndTalk {
+  display: inline-block;
+  background-color: #ff00ff;
   width: 350px;
-  border-left: 1px solid #BDBDBD;
+  margin-left: 10px;
+}
+
+.player {
+  width: 350px;
+  height: 250px;
+  background-color: #00ff00;
+}
+
+.talkRoom {
+  background-color: #0000ff;
+  width: 350px;
+  height: 350px
 }
 </style>

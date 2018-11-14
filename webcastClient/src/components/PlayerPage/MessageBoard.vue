@@ -1,6 +1,6 @@
 <template>
-<div class="messageboard-layout">
-  <Scroll :on-reach-top="handleReachTop">
+<div class="layout">
+  <Scroll class="scrollMsgBoard" :on-reach-top="handleReachTop">
     <table v-for="msg in msgs">
       <p v-if="msg.type==='text'">{{msg.senderName}}:{{msg.data}}</p>
       <p v-if="msg.type==='image'">{{msg.senderName}}:<img :src=msg.data ></p>
@@ -52,16 +52,15 @@ export default {
 }
 </script>
 <style scoped>
-.messageboard-layout {
+.layout {
   border: 1px solid #d7dde4;
-  background: #f5f7f9;
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-  height: 300px;
-  background-color: #909090;
+  background-color: #f5f7f9;
+  height: 250px;
 }
 
+.scrollMsgBoard{
+  height: 250px;
+}
 .chatImg {
   width: 40px;
   height: 30px;

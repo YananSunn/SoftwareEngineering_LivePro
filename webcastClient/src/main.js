@@ -9,6 +9,7 @@ import VueCookie from 'vue-cookie';
 import VueSession from 'vue-session';
 import axios from 'axios';
 import io from 'socket.io-client'
+import '../my_theme/index.less';
 
 Vue.use(iView);
 Vue.use(VueCookie);

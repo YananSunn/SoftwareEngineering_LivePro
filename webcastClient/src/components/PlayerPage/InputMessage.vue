@@ -1,32 +1,30 @@
-
 <template>
-<div>
-  <div class="tmp"> {{ message }} </div>
-  <div class="right_left">
-    <Input v-model="value13" on-enter="sendMessage" class="input" v-if="keyBoardInput">
-    </Input>
+<div class="layout">
+
+
+
+
     <Select v-model="select3" slot="prepend" style="width: 60px">
       <Option value="全体">全体</Option>
       <Option value="私聊">私聊</Option>
       <Option value="禁言">禁言</Option>
       <Option value="恢复语音">恢复语音</Option>
-
     </Select>
-    <Button slot="append" icon="md-return-left" @click="sendMessage"></Button>
+
+    <input v-model="value13" on-enter="sendMessage" class="input" v-if="keyBoardInput">
+    <Button slot="append" icon="md-return-left" @click="sendMessage">
+    </Button>
 
     <p v-if="select3==='私聊'">私聊用户名
-      <Input v-model="dstname">
-      </Input>
+      <input v-model="dstname">
     </p>
-    <!-- <button v-if="!keyBoardInput">按住说话</button> -->
     <Recorder v-if="!keyBoardInput" :classId="this.classId"></Recorder>
-  </div>
   <div class="right_right">
-    <button v-on:click="keyBoardInput = !keyBoardInput">
+    <Button v-on:click="keyBoardInput = !keyBoardInput">
       <Icon type="md-keypad" v-if="keyBoardInput"></Icon>
       <Icon type="ios-mic-outline" v-if="!keyBoardInput"></Icon>
-    </button>
-    <Form>
+    </Button>
+    <!-- <Form>
       <FormItem>
         <a href="javascript:;">
           <Input type="file" id="imageupload" name="imageupload">
@@ -36,7 +34,7 @@
       <FormItem>
         <Button icon="ios-cloud-upload-outline" v-on:click="sendimage"></Button>
       </FormItem>
-    </Form>
+    </Form> -->
 
   </div>
 </div>
@@ -49,7 +47,6 @@ export default {
   },
   data() {
     return {
-      message: "聊天记录",
       value13: '',
       select3: '全体',
       keyBoardInput: true,
@@ -114,6 +111,12 @@ export default {
 }
 </script>
 <style scoped>
+.layout{
+  width: 350px;
+  height: 100px;
+  padding-left: 0;
+  padding-top: 0;
+}
 .tmp {
   height: 40px;
 }

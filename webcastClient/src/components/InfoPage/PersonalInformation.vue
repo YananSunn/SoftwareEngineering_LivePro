@@ -2,9 +2,6 @@
 <template>
 <div class="layout">
   <Layout>
-    <Header>
-      <header-bar-stu />
-    </Header>
     <Layout :style="{padding: '30px 50px'}">
       <div class="setinfo">
         <info-board />
@@ -17,13 +14,11 @@
 </template>
 
 <script>
-import HeaderBarStu from '../PlayerPage/HeaderBarStu.vue'
 import InfoBoard from './InfoBoard.vue'
 
 export default {
 
   components: {
-    HeaderBarStu,
     InfoBoard
   }
 }

@@ -1,7 +1,13 @@
 <template>
-<div class="talkroom-layout">
-  <message-board />
-  <input-message :classId="this.classId"/>
+<div class="layout">
+  <div class="messageBoard">
+    <MessageBoard>
+    </MessageBoard>
+  </div>
+  <div class="InputMessage">
+    <InputMessage :classId="this.classId">
+    </InputMessage>
+  </div>
 </div>
 </template>
 <script>
@@ -18,13 +24,22 @@ export default {
 }
 </script>
 <style scoped>
-.talkroom-layout {
-  border: 1px solid #d7dde4;
-  background: #f5f7f9;
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-  height: 500px;
-  background-color: #707070;
+.layout {
+  height: 350px;
+  width: 350px;
+  padding-left: 0;
+  padding-top: 0;
+  background-color: #FFFFFF;
+}
+
+.messageBoard{
+  height: 250px;
+  width: 350px;
+  background-color: #00FFFF;
+}
+.InputMessage{
+  height: 100px;
+  width: 350px;
+  background-color: #FFFF00;
 }
 </style>

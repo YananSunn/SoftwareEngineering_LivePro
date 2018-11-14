@@ -1,68 +1,44 @@
 <template>
 <div class="layout">
-  <Layout>
-    <Header>
-      <header-bar-stu />
-    </Header>
-    <Layout :style="{padding: '30px 50px'}">
-      <Content :style="{padding: '24px 0', minHeight: '280px', background: '#C0C0C0'}">
-        <Layout>
-          <div class="talkroom">
-            <my-container :classId="this.$route.params.classId"></my-container>
-          </div>
-        </Layout>
-      </Content>
-    </Layout>
-    <Footer class="layout-footer-center">2018 &copy; Team4.0</Footer>
-  </Layout>
+  <div>
+    <HeaderBar class="headerBar">
+    </HeaderBar>
+  </div>
+  <div class="talkRoom">
+    <MyContainer :classId="this.$route.params.classId"></MyContainer>
+  </div>
+  <Footer class="layout-footer-center">2018 &copy; Team4.0</Footer>
 </div>
-
 </template>
 
 <script>
-import HeaderBarStu from './HeaderBarStu.vue'
+import HeaderBar from '../HeaderBar.vue'
 import MyContainer from './MyContainer.vue'
 export default {
   components: {
-    HeaderBarStu,
+    HeaderBar,
     MyContainer
   },
   mounted() {
 
   }
-
 }
 </script>
 <style scoped>
 .layout {
-  border: 1px solid #d7dde4;
   background: #f5f7f9;
-  border-radius: 4px;
-  overflow: hidden;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
 }
 
-.layout-logo {
-  width: 100px;
-  height: 48px;
-  background: #5b6270;
-  border-radius: 3px;
-  float: left;
-  position: relative;
-  top: 5px;
-  left: 20px;
+.headerBar {
+  text-align: left;
+  width: 1280px;
+}
+
+.talkRoom {
+
 }
 
 .layout-footer-center {
   text-align: center;
-}
-
-.talkroom {
-  background: #FF00FF;
-  position: relative;
-  overflow: hidden;
 }
 </style>

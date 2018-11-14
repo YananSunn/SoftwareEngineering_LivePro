@@ -1,5 +1,7 @@
 <template>
-<div class="player" id='player'>
+<div class="layout">
+  <div class="player" id='player'>
+  </div>
 </div>
 </template>
 
@@ -17,8 +19,8 @@ export default {
     document.body.appendChild(recaptchaScript)
     recaptchaScript.onload = () => {
       var player = polyvObject('#player').livePlayer({
-        'width': '800',
-        'height': '500',
+        'width': '350',
+        'height': '250',
         'uid': this.uid,
         'vid': this.vid
       });
@@ -35,7 +37,11 @@ export default {
 }
 </script>
 <style scoped>
-/* .player {
+.layout{
+  padding-left: 0;
+  padding-top: 0;
+}
+.player {
 
-} */
+}
 </style>
