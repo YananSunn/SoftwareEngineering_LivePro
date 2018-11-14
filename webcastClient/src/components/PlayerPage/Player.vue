@@ -1,26 +1,14 @@
-
-
 <template>
-  <!-- <body onload="">
-
-  </body> -->
 <div class="player" id='player'>
 </div>
 </template>
-
 
 <script type="text/javascript">
 export default {
   data: () => ({
     uid: '',
     vid: ''
-
   }),
-  beforeCreate(){
-
-    console.log("before")
-  },
-
   mounted() {
     this.updateUid('9f528fa01e')
     this.updateVid('242078')
@@ -33,9 +21,8 @@ export default {
         'height': '500',
         'uid': this.uid,
         'vid': this.vid
-        });
+      });
     }
-
   },
   methods: {
     updateUid: function(_uid) {
@@ -48,9 +35,7 @@ export default {
 }
 </script>
 <style scoped>
-.player {
-  /* background-color: #00FFFF;
-  height: 500px;
-  width: 700px; */
-}
+/* .player {
+
+} */
 </style>

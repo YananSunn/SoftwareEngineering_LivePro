@@ -1,21 +1,20 @@
-
 <template>
 <div class="talkroom-layout">
   <message-board />
-  <input-message />
+  <input-message :classId="this.classId"/>
 </div>
 </template>
 <script>
-import MessageBoard from '@/components/PlayerPage/MessageBoard.vue'
-import InputMessage from '@/components/PlayerPage/InputMessage.vue'
-
+import MessageBoard from './MessageBoard.vue'
+import InputMessage from './InputMessage.vue'
 export default {
-
   components: {
     MessageBoard,
     InputMessage
+  },
+  props:{
+    classId:String
   }
-
 }
 </script>
 <style scoped>

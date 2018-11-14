@@ -1,68 +1,92 @@
-
-<style scoped>
-.layout-logo{
-    width: 100px;
-    height: 30px;
-    background: #5b6270;
-    border-radius: 3px;
-    float: left;
-    position: relative;
-    top: 15px;
-    left: 0px;
-}
-.layout-nav{
-    float: right;
-    margin: 0 auto;
-    margin-left: 20px;
-}
-.header-bar-a{
-    margin-right: 20px;
-    color: #FFF;
-}
-.header-bar-tag{
-    float: left;
-    margin-right: 10px;
-    margin-left: 10px;
-    color: #FFF;
-}
-.header-bar-login{
-    float: right;
-    margin-right: 20px;
-    color: #FFF;
-}
-
-</style>
-
 <template>
-    <div>
-        <Menu mode="horizontal" theme="dark" active-name="1">
-            <div class="layout-logo"></div>
-            <a class="header-bar-tag" href="/">PageA</a>
-            <a class="header-bar-tag" href="/">PageB</a>
-            <!-- <a class="header-bar-tag" href="/">PageC</a> -->
-            <router-link to="/StudentPlayer">Player</router-link>
-            <router-link to="/PersonalInformation">Account Info</router-link>
-            <div class="layout-nav">
-                <!--<a class="header-bar-a" href="/">Page1</a>
-                <a class="header-bar-a" href="/">Page2</a>-->
-                <Login></Login>
-            </div>
-        </Menu>
+<div class="headerBar">
+  <div class="layoutLogo">
+    <img class="imgLogo" src="../assets/logo.jpg" alt="">
+  </div>
+  <div class="layoutMenu">
+    <div class="menuItem">
+      aaaaaaa
+      <!-- <router-link to="/TeacherPlayer" class="header-bar-tag">Teacher</router-link>
+      <router-link to="/PersonalInformation" class="header-bar-tag">Account Info</router-link>
+      <router-link to="/Exercise" class="header-bar-tag">Exercise</router-link> -->
     </div>
+    <div class="menuItem">
+      bbbbbbb
+      <!-- <router-link class="link" to="/">回到主页</router-link> -->
+    </div>
+    <div class="menuItem">
+      ccccccc
+      <!-- <router-link class="link" to="/ClassList">教室列表</router-link> -->
+    </div>
+  </div>
+  <div class="layoutNav">
+    dddddddd
+    <!-- <Login></Login> -->
+  </div>
+</div>
 </template>
 <script>
+import Login from './Login.vue'
+export default {
+  data() {
+    return {}
+  },
+  methods: {
 
-    import Login from '@/components/Login.vue'
-    export default {
-        data() {
-            return {
-            }
-        },
-        methods: {
-
-        },
-        components: {
-            Login
-        }
-    }
+  },
+  components: {
+    Login
+  }
+}
 </script>
+
+<style scoped>
+.headerBar {
+  background: #FFFFFF;
+  font-size: 0;
+  line-height: 75px;
+  width: 1400px;
+  height: 75px;
+}
+
+.layoutLogo {
+  display: inline-block;
+  width: 150px;
+  height: 75px;
+  background: #FFFFFF;
+  border-radius: 3px;
+}
+
+.layoutMenu {
+  display: inline-block;
+  background: #FFFFFF;
+  width: 600px;
+  height: 75px;
+}
+
+.layoutNav {
+  display: inline-block;
+  background: #FFFFFF;
+  width: 150px;
+  height: 75px;
+}
+
+.menuItem {
+  display: inline;
+  font-size: 18px;
+  color: #333333;
+  width: 50px;
+  height: 75px;
+}
+
+.imgLogo {
+  width: 150px;
+  height: 75px;
+}
+
+.link {
+  color: #FF0000;
+}
+
+.menuCol {}
+</style>

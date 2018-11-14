@@ -1,27 +1,26 @@
-
-
 <template>
 <div class="container-layout">
   <div class="leftContext">
-    <player/>
+    <player />
   </div>
   <div class="rightContext">
     <div class="editorRecommend">
-      <talk-room/>
+      <talk-room :classId="this.classId" />
     </div>
   </div>
 </div>
 </template>
 <script>
-import Player from '@/components/PlayerPage/Player.vue'
-import TalkRoom from '@/components/PlayerPage/TalkRoom.vue'
+import Player from './Player.vue'
+import TalkRoom from './TalkRoom.vue'
 export default {
-
   components: {
     Player,
     TalkRoom
+  },
+  props:{
+    classId:String
   }
-
 }
 </script>
 <style scoped>
@@ -43,7 +42,6 @@ export default {
 .rightContext {
   float: right;
   width: 350px;
-
   border-left: 1px solid #BDBDBD;
 }
 </style>

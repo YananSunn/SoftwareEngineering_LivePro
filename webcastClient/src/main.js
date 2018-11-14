@@ -1,19 +1,37 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
-import router from './router'
-import iView from 'iview';
+import App from './App.vue'
+import iView from 'iview'
 import 'iview/dist/styles/iview.css';
+import router from './router.js'
+import VueCodeMirror from 'vue-codemirror'
+import 'codemirror/lib/codemirror.css'
+import VueCookie from 'vue-cookie';
+import VueSession from 'vue-session';
+import axios from 'axios';
+import io from 'socket.io-client'
 
 Vue.use(iView);
-Vue.config.productionTip = false
+Vue.use(VueCookie);
+Vue.use(VueSession);
+Vue.use(VueCodeMirror);
 
+Vue.config.productionTip = false;
+Vue.prototype.$ajax = axios;
+Vue.prototype.$socket=io();
+Vue.prototype.$socketReconnect=(url)=>{
+    Vue.prototype.$socket=io.connect(url);
+    Vue.prototype.$socket.on("news",(data)=>{
+    console.log(data);
+    })
+    Vue.prototype.$socket.on("test msg",(data)=>{
+    console.log(data);
+    })
+}
 
-/* eslint-disable no-new */
+axios.defaults.withCredentials = true;
+
 new Vue({
   el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
+  render: h => h(App)
 })

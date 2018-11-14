@@ -1,67 +1,63 @@
-<style scoped>
-.layout{
-    border: 1px solid #d7dde4;
-    background: #f5f7f9;
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-}
-.layout-logo{
-    width: 100px;
-    height: 30px;
-    background: #5b6270;
-    border-radius: 3px;
-    float: left;
-    position: relative;
-    top: 15px;
-    left: 20px;
-}
-.layout-nav{
-    width: 420px;
-    margin: 0 auto;
-    margin-right: 20px;
-}
-.layout-footer-center{
-    text-align: center;
-}
-</style>
+//常用颜色
+//图标字体颜色 登陆等按钮 #41B146
+//背景颜色 #F5F5F5
+//标题字颜色 #333333
+//链接颜色 #99A6C4
 
 <template>
-    <div class="layout">
-        <Layout>
-            <Header>
-                <header-bar/>
-            </Header>
-            <Content :style="{padding: '0 50px'}">
-                <Breadcrumb :style="{margin: '20px 0'}">
-                    
-                </Breadcrumb>
-                <Card>
-                    <div style="min-height: 200px;">
-                        content
-                    </div>
-                </Card>
-
-                <ThumbsGalleryLoop></ThumbsGalleryLoop>
-            </Content>
-
-            
-            <Footer class="layout-footer-center">2018 &copy; Team4.0</Footer>
-        </Layout>
-    </div>
+<div class="layout">
+      <HeaderBar class="headerBar"/>
+    <Carousel autoplay v-model="value" loop>
+      <CarouselItem>
+        <div class="demo-carousel">1</div>
+      </CarouselItem>
+      <CarouselItem>
+        <div class="demo-carousel">2</div>
+      </CarouselItem>
+      <CarouselItem>
+        <div class="demo-carousel">3</div>
+      </CarouselItem>
+      <CarouselItem>
+        <div class="demo-carousel">4</div>
+      </CarouselItem>
+    </Carousel>
+    <Footer class="layout-footer-center">2018 &copy; Team4.0</Footer>
+</div>
 </template>
 <script>
-
-    import HeaderBar from '@/components/HeaderBar.vue'
-    import ThumbsGalleryLoop from '@/components/thumbs-gallery-loop.vue'
-    import Swiper from "swiper"
-    import "swiper/dist/css/swiper.min.css"
+import HeaderBar from './HeaderBar.vue'
 
 
-    export default {
-        components: {
-            HeaderBar,
-            ThumbsGalleryLoop
-        }
+export default {
+  data() {
+    return {
+      value: 0
     }
+  },
+  components: {
+    HeaderBar
+  }
+}
 </script>
+<style scoped>
+.layout {
+  background: #FF0000;
+  background-color: #f5f7f9;
+  overflow: hidden;
+}
+
+.headerBar{
+  /* padding: 5px; */
+}
+
+.layout-footer-center {
+  background-color: #f5f7f9;
+  text-align: center;
+}
+
+.demo-carousel{
+  background-color: #f5f7f9;
+  width:1000px;
+  height: 700px;
+}
+</style>
